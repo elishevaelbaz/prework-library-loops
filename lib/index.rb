@@ -18,12 +18,34 @@ library = [
 
 # WRITE CODE BELOW HERE
 
+def all_pages(array)
+  sum = 0
+  array.each do |book|
+    sum += book[:pages]
+  end
+  puts sum
+  # array.reduce {|book| book[:pages]}
+  # array.each {|book| puts book[:pages].class}
+end
 
+
+def all_pages_read(array)
+  sum = 0
+  array.each do |book|
+    if book[:completed]
+      sum += book[:pages]
+    end
+  end
+  puts sum
+end
 
 
 # WRITE CODE ABOVE HERE
 
 
-binding.pry
+# binding.pry
 
-puts "Books!"
+# puts "Books!"
+
+all_pages(library)
+all_pages_read(library)
