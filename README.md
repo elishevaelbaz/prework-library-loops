@@ -7,7 +7,7 @@ Now you have your collection, minified to an array called library. This array co
 ### Setup
 If you have your local environment setup, you'll be able do this lab!
 * fork this repo so you have your own version of it
-* clone down this repo, either by clicking the green button that says "Clone or download" and copying that code, or by typing into your terminal (where your repositories go) `git clone git@github.com:Guillamoure/prework-library-loops.git`
+* clone down this repo, either by clicking the green button that says "Clone or download" and copying that code, or by typing into your terminal (where your repositories go) `git clone git@github.com:<your-github>/prework-library-loops.git`
 * change your directory into that folder (`cd prework-library-loops`)
 * open up the lab in your preferred text editor
 * run `bundle install` in terminal
