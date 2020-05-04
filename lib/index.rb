@@ -36,9 +36,35 @@ def all_pages_read(array)
       sum += book[:pages]
     end
   end
-  puts sum
+  sum
 end
 
+def all_genres(array)
+  array.map do |book|
+    book[:genres]
+  end.flatten.uniq
+end
+
+def books_read(array)
+  array.select {|book| book[:completed] == true}
+end
+
+
+def completed_books_detail(array)
+  num_books = books_read(array).count
+  num_pages = all_pages_read(array)
+  puts "I've read #{num_books} books, totaling at #{num_pages} pages"
+end
+
+def books_in_library(array)
+  array.map do |book|
+    "#{book[:title]} by #{book[:author]}"
+  end
+end
+
+def books_by_year(array)
+  
+end
 
 # WRITE CODE ABOVE HERE
 
@@ -47,5 +73,9 @@ end
 
 # puts "Books!"
 
-all_pages(library)
-all_pages_read(library)
+# all_pages(library)
+# puts all_pages_read(library)
+# puts all_genres(library)
+# puts books_read(library)
+# completed_books_detail(library)
+puts books_in_library(library)
