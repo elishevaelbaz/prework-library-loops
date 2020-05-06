@@ -63,7 +63,50 @@ def books_in_library(array)
 end
 
 def books_by_year(array)
-  
+  array.sort_by { |book| book[:publication_year]}
+end
+
+def books_with_subtitles(array)
+  array.select {|book| book[:title].include?(";")}
+end
+
+def books_primary_title(array)
+  array.map do |book|
+    book[:title].split(";").first
+
+  end
+end
+
+def highest_page_count(array)
+  page_count = 0
+  longest_book = ""
+  # array.reduce do 
+  array.each do |book|
+    if book[:pages] > page_count
+      page_count = book[:pages]
+      longest_book = book
+    end
+  end
+  longest_book
+end
+
+def recommended_books(array, num)
+  array.sort_by {|book| book[:pages]}.slice(0, num)
+end
+
+def recommended_books_by_genre(array, preferred_genre, non_preferred_genre)
+  new_array = []
+  array.each do |book|
+    unless book[:genres].include?(non_preferred_genre)
+      if book[:genres].include?(preferred_genre)
+        new_array.unshift("Since you like #{preferred_genre}, you should read #{book[:title]} by #{book[:author]}!")
+      else
+        new_array.push("I also recommend #{book[:title]} by #{book[:author]}.")
+      end
+    end
+  end
+  new_array
+
 end
 
 # WRITE CODE ABOVE HERE
@@ -73,9 +116,18 @@ end
 
 # puts "Books!"
 
+
+# testing out the functions
+
 # all_pages(library)
 # puts all_pages_read(library)
 # puts all_genres(library)
 # puts books_read(library)
 # completed_books_detail(library)
-puts books_in_library(library)
+# puts books_in_library(library)
+# puts books_with_subtitles(library)
+# puts books_by_year(library)
+# puts books_primary_title(library)
+# puts highest_page_count(library)
+# puts recommended_books(library, 1)
+# puts recommended_books_by_genre(library, "Historical Fiction", "Science Fiction")
